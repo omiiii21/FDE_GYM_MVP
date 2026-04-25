@@ -11,13 +11,18 @@ models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
+import os
+
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "http://localhost:4200").split(",")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:4200"],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 @app.post("/profile", response_model=schemas.ProfileResponse)
 def create_profile(profile: schemas.Profile, db: Session = Depends(get_db)):

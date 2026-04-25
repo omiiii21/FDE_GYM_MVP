@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: fde-gym-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: ALLOWED_ORIGINS
+        # After deploying the Vercel frontend, add its URL here (comma-separated)
+        # Example: https://fde-gym-mvp.vercel.app
+        value: "https://fde-gym-mvp.vercel.app"

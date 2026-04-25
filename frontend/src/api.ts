@@ -1,4 +1,5 @@
-const API_URL = "http://localhost:6969";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:6969";
+
 
 export const createProfile = async (payload: any) => {
   const res = await fetch(`${API_URL}/profile`, {
