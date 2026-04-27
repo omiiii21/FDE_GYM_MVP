@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+
 
 export const RecommendationPanel = ({ onGenerate, recommendation, loading }: any) => {
   const [apiKey, setApiKey] = useState('');

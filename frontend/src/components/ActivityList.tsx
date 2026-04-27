@@ -1,4 +1,3 @@
-import React from 'react';
 
 export const ActivityList = ({ logs }: { logs: any[] }) => {
   if (logs.length === 0) {
