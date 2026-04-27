@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Fitness AI Assistant</title>
+    <script>
+      // GitHub Pages SPA redirect trick.
+      // Stores the current path in sessionStorage and redirects to index.html.
+      // The main index.html then reads it back and restores the path via history.replaceState.
+      var location = window.location;
+      var pathSegmentsToKeep = 1; // keep /FDE_GYM_MVP prefix
+      var l = location.pathname
+        .split('/')
+        .slice(0, 1 + pathSegmentsToKeep)
+        .join('/');
+      sessionStorage.redirect = l + location.search + location.hash;
+      location.replace(l + '/?p=1');
+    </script>
+  </head>
+  <body></body>
+</html>
